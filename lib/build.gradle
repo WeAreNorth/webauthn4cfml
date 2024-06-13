@@ -1,0 +1,40 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    // Define implementation dependency versions independently
+    webauthn4jVersion = "0.24.0.RELEASE"
+    jacksonVersion = "2.17.1"
+    kerbyVersion = "2.0.3"
+    slf4jVersion = "2.0.13"
+    bouncyCastleVersion = "1.70"
+    jetbrainsAnnotationsVersion = "24.1.0"
+}
+
+dependencies {
+    implementation group: 'com.webauthn4j', name: 'webauthn4j-core', version: webauthn4jVersion
+    implementation group: 'com.webauthn4j', name: 'webauthn4j-util', version: webauthn4jVersion
+
+    implementation("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
+    implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:$jacksonVersion")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
+
+    implementation("org.apache.kerby:kerby-asn1:$kerbyVersion")
+
+    implementation("org.slf4j:slf4j-api:$slf4jVersion")
+
+    implementation("org.jetbrains:annotations:$jetbrainsAnnotationsVersion")
+            
+    // 
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
+}
+
+test {
+    useJUnitPlatform()
+}

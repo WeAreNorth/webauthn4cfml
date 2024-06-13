@@ -1,0 +1,20 @@
+{
+    "name":"webauthn4cfml",
+    "web":{
+        "webroot":"src/cfml",
+        "directoryBrowsing":true,
+        "accessLogEnable":true,
+        "maxRequests":30,
+        "gzipEnable":true,
+        "welcomeFiles":"index.cfm",
+        "bindings":{
+            "HTTP":{
+                "listen":"0.0.0.0:8080",
+                "host":"localhost"
+            }
+        }
+    },
+    "app":{
+        "cfengine":"lucee@5.4"
+    }
+}
